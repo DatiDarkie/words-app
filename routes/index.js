@@ -1,4 +1,4 @@
-const { Router, application } = require("express");
+const { Router } = require("express");
 const router = Router();
 const configData = require('../config');
 
@@ -15,6 +15,11 @@ module.exports = function (qb) {
     }
 
     res.render('login');
+  });
+
+  router.get('/logout', (req, res) => {
+    req.session.destroy();
+    res.redirect(req.query.r || '/');
   });
 
   router.post('/login', (req, res) => {
