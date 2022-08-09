@@ -1,0 +1,20 @@
+{
+  "name": "words-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "mysql": "^2.18.1",
+    "mysql-qb": "^0.9.0",
+    "pug": "^3.0.2"
+  },
+  "keywords": [],
+  "author": "YousefHusain",
+  "license": "MIT",
+  "description": "The goal of this app is to help you learn languages."
+}

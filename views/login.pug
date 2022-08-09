@@ -1,0 +1,23 @@
+extends layout.pug
+
+block title
+  | Words App
+
+block content
+  .mt-1.d-flex.justify-content-center.py-5
+    form.card.border-0.shadow(autocomplete="off", method="post", style="width: 500px")
+      .card-body
+        .form-group
+          h4.mb-3.text-center.py-2 Login to continue
+        .form-group.mb-3.mx-3
+          label.fw-bold Username
+          input.form-control(name="username", minlength="1", required, value=username)
+        .form-group.mb-3.mx-3
+          label.fw-bold Password
+          input.form-control(name="password", type="password", minlength="1", required)
+        .form-group.mb-3.mx-3
+          button.w-100.btn.btn-primary.fw-bold(style="background-color: #4682b4", type="submit") Login
+        
+        if errorMessage
+          .form-group.mb-3-mx-3
+            div.mx-3.alert.alert-danger.fw-bold(role="alert") #{errorMessage}

@@ -1,0 +1,35 @@
+extends layout.pug
+
+block title
+  | Words App
+
+block content
+  include layouts/navbar.pug
+  .content-div.mt-1
+    ul.nav.nav-tabs.my-3#category
+      each category, index in categories
+        li.nav-item(data-category=category.value)
+          if (index === 0)
+            span.nav-link.active #{category.name}
+          else
+            span.nav-link #{category.name}
+    h3.fw-bold Sort
+    .d-flex.mb-2.sort-cnt
+      each sortOption, index in sortOptions
+        if (index === 0)
+          input.btn-check(type="radio", id="option" + index, name="sortOptions" value=sortOption.value checked)
+          label.btn.btn-light.text-dark.pill-left(for="option" + index)
+            i.fa-solid.fa-filter-circle-xmark
+        else
+          input.btn-check(type="radio", id="option" + index, name="sortOptions", value=sortOption.value)
+          label.btn.btn-light.text-dark.pill-left(for="option" + index, dir=sortOption.value.startsWith('ar') ? 'rtl' : 'ltr')
+            | #{sortOption.name}
+    input.form-control.my-2#search(type="text", placeholder="Enter query to search")
+    .table-wrapper-scroll-y.custom-scrollbar
+      table#words-table
+        thead.sticky-top
+          tr
+            th.text-center.vw-50.py-2 Word
+            th.text-center.vw-50 Translate
+        tbody
+  include layouts/modals.pug

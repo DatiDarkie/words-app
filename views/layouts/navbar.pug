@@ -1,0 +1,36 @@
+nav.navbar.navbar-expand-lg
+  .container-fluid.justify-content-between.p-0
+    div
+      h1.brand-text.fw-bold.d-inline Words
+      strong.d-inline &nbsp;v#{version}
+    //-------------------------------------------------------------------------------
+    .d-flex
+      //- ! reset settings
+      a.icon-btn(href="#", data-bs-toggle="tooltip", data-bs-title="Reset your settings", data-role="reset-settings")
+        i.fas.fa-cog.fa-xl.my-auto.me-2#resetSettings
+      //- ! set theme
+      a.icon-btn#dropdownTheme(href="#", role="button", data-bs-toggle="dropdown", aria-expanded="false")
+        i.fas.fa-palette.fa-xl.my-auto(data-bs-toggle="tooltip", data-bs-title="Change theme")
+      .dropdown.me-2
+        .dropdown-menu.px-2(aria-labelledby="dropdownTheme")
+          .dropdown-header.text-center
+            h6.dropdown-title Theme
+          .d-flex.justify-content-between.my-1
+            label Primary
+            input#primaryColor(type="color", value="#ffffff")
+      //- ! show stats
+      a.icon-btn#showStats(href="#", data-bs-toggle="tooltip", data-bs-title="Show words stats")
+        i.me-2.fa-solid.fa-file-lines.fa-xl.my-auto#showStats
+      .dropdown.dropstart
+        a.icon-btn#dropdownUsers(href="#", role="button", data-bs-toggle="dropdown", aria-expanded="false")
+          i.fa-solid.fa-user-group.fa-xl(data-bs-toggle="tooltip", data-bs-title="Select the user")
+        .dropdown-menu.px-2(aria-labelledby="dropdownUsers")
+          .dropdown-header.text-center
+            h6.dropdown-title Select The User
+          each user in users
+            .form-check
+              input.form-check-input(type="radio", value=user.name, name="user", data-color=user.color)
+              label.form-check-label #{user.name.replace(/w/, e => e.toUpperCase())}
+      //- ! add a new word
+      a.icon-btn(href="#", data-bs-toggle="tooltip", data-bs-title="Add a new word", onclick="launchModal()")
+        i.ms-2.fa-solid.fa-square-plus.fa-xl.my-auto

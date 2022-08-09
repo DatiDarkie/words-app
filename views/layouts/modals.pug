@@ -1,0 +1,51 @@
+.modal.fade#addUser(tabindex="-1", aria-labelledby="appModalLabel", aria-hidden="true")
+  .modal-dialog.modal-dialog-centered
+    form.modal-content#modal-user-form(autocomplete="off")
+      .modal-header
+        h5.modal-title
+        button.btn-close(type="button", data-bs-dismiss="modal", aria-label="Close")
+      .modal-body
+        label.form-label(for="categoryRadioBtnsCnt") Categories
+        .d-flex.justify-content-start#categoryRadioBtnsCnt
+          input(type="hidden", name="id")
+          each category, index in categories
+            .form-check.form-check-inline
+              input.form-check-input(type="radio", name="category", id=category.value, value=category.value, checked)
+              label.form-check-label(for="category1") #{category.name}
+        .d-flex.flex-column.my-2#form
+          label.form-label(for="word") Word
+          input.form-control.outline-style(type="text", name="word", placeholder="Enter the word.")
+          label.form-label.mt-3(for="translation") Word Translate
+          input.form-control.outline-style(type="text", name="word_translate", placeholder="Enter the word translation.")
+      .modal-footer
+        .p-1.d-flex.w-100
+          button#deleteWord.btn.btn-danger.rounded-0(type="button", style="min-width: 100px", data-bs-dismiss="modal") Delete This Word
+          button#saveWord.btn.btn-success.rounded-0(type="submit", style="min-width: 100px") Save Changes
+        .w-100.alert.alert-danger.fw-bold#addUserErrorMessage(role="alert")
+
+.modal.fade#alertModal(tabindex="-1", aria-labelledby="alertModalLabel", data-bs-backdrop="static", data-bs-keyboard="false", aria-hidden="true")
+  .modal-dialog.modal-dialog-centered
+    .modal-content
+      .modal-footer
+        h3.fw-bold.text-center#modal-title
+        button.btn.btn-danger(type="button", data-bs-dismiss="modal") NO
+        button.btn.btn-success#yes-btn(type="button", data-bs-dismiss="modal") YES, do it!
+.modal.fade#statsModal(tabindex="-1", aria-labelledby="alertModalLabel", data-bs-keyboard="false", aria-hidden="true")
+  .modal-dialog.modal-dialog-centered
+    .modal-content
+      .modal-body
+        .modal-header
+          h5.modal-title Words Stats
+          button.btn-close(type="button", data-bs-dismiss="modal", aria-label="Close")
+        .modal-body
+          p#stats-writer
+          table.table.table-bordered
+            thead
+              tr
+                th(scope="col") Category
+                th(scope="col") Number of words
+            tbody
+              each category, index in categories
+                tr
+                  td #{category.name}
+                  td(data-stats=category.value)
