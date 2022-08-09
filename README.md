@@ -2,10 +2,12 @@
 The goal of this app is to help you learn languages.
 <br>
 <br>
+**Some informations:** This application deals with the database [MySQL](https://www.mysql.com/), uses [epressjs](https://expressjs.com/) as a back-end and, and uses [pugjs](https://pugjs.org/api/getting-started.html) as a front-end view engine.
+<br>
 # Install
-To install the required packages, use this command in your terminal.
+**Important:** Note that you need to install version 16.x of [NodeJS](https://nodejs.org/en/download/).
 <br><br>
-**Important:** Note that you need to install version 16 of [NodeJS](https://nodejs.org/en/download/).
+To install the required packages, use this command in your terminal.
 ```sh-session
 npm install
 ```
