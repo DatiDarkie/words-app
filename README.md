@@ -19,7 +19,7 @@ npm install
 
 - Step Two: Enter "SECRET" and "PASSWORD" in the env file.
 
-- Step Three: Type `node index.js` in the terminal to start the application.
+- Step Three: run command `node index.js` in the terminal to start the application.
 
 <br>
 
